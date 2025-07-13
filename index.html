@@ -1,0 +1,154 @@
+<!-- Great! I'll create a single-page website with HTML, CSS, and JavaScript combined into one file. The website will display fun facts about crocodiles, adapt its color scheme based on keywords in the facts, and include buttons to share the facts on Twitter and LinkedIn.
+
+Here's the complete code:
+
+```html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fun Crocodile Facts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            transition: background-color 0.5s;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        #factContainer {
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            text-align: center;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #007BFF;
+            color: white;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .share-buttons {
+            margin-top: 10px;
+        }
+        .share-buttons a {
+            margin: 0 5px;
+            text-decoration: none;
+            color: #007BFF;
+        }
+    </style>
+</head>
+<body>
+    <h1>Fun Crocodile Facts</h1>
+    <div id="factContainer">Click the button to get a fun fact!</div>
+    <button onclick="displayRandomFact()">Get Another Fact</button>
+    <div class="share-buttons">
+        <a id="twitterShare" href="#" target="_blank">Share on Twitter</a>
+        <a id="linkedinShare" href="#" target="_blank">Share on LinkedIn</a>
+    </div>
+    <script>
+        const facts = [
+            {
+                "fact": "Crocodiles can hold their breath for over an hour underwater, and even longer if they're not active, allowing them to ambush prey.",
+                "source": "Scientific research on crocodile physiology."
+            },
+            {
+                "fact": "A crocodile's bite is the strongest bite force of any animal, estimated to be up to 3,700 PSI (pounds per square inch).",
+                "source": "Zoological studies and bite force measurements."
+            },
+            {
+                "fact": "Crocodiles can replace their teeth throughout their lives, with each crocodile using up to 3,000 teeth during their lifetime.",
+                "source": "Research on crocodilian dental biology."
+            },
+            {
+                "fact": "Saltwater crocodiles can tolerate saltwater due to specialized salt glands on their tongue, which excrete excess salt.",
+                "source": "Studies on crocodile osmoregulation."
+            },
+            {
+                "fact": "Female crocodiles build nests and guard their eggs, and they also help their young hatch by gently cracking the eggs.",
+                "source": "Observations of crocodile nesting behavior."
+            },
+            {
+                "fact": "Crocodiles have a 'gular pump,' a unique throat pumping mechanism that helps them swallow food underwater.",
+                "source": "Research on crocodile feeding mechanisms."
+            },
+            {
+                "fact": "Crocodiles are among the oldest living reptiles, with ancestors dating back over 200 million years, even predating dinosaurs.",
+                "source": "Paleontological and fossil records."
+            },
+            {
+                "fact": "Crocodiles can 'gallop' on land over short distances, a surprising behavior for such large reptiles.",
+                "source": "Observations of crocodile locomotion."
+            },
+            {
+                "fact": "Some crocodiles have been observed using tools, such as baiting birds with sticks to catch them.",
+                "source": "Studies on crocodile cognitive behavior."
+            },
+            {
+                "fact": "Crocodiles are capable of 'crying,' but they don't shed tears for emotional reasons; it's a way to release excess salt and lubricate their eyes.",
+                "source": "Studies of crocodile physiology and behavior."
+            }
+        ];
+
+        function displayRandomFact() {
+            const randomIndex = Math.floor(Math.random() * facts.length);
+            const fact = facts[randomIndex].fact;
+            document.getElementById('factContainer').innerText = fact;
+            changeBackgroundColor(fact);
+            updateShareLinks(fact);
+        }
+
+        function changeBackgroundColor(fact) {
+            let color;
+            if (fact.includes("breath") || fact.includes("underwater")) {
+                color = "#a2d5f2"; // Light blue
+            } else if (fact.includes("bite") || fact.includes("teeth")) {
+                color = "#f28a8a"; // Light red
+            } else if (fact.includes("saltwater") || fact.includes("salt")) {
+                color = "#f2e2a2"; // Light yellow
+            } else if (fact.includes("nest") || fact.includes("eggs")) {
+                color = "#a2f2a2"; // Light green
+            } else if (fact.includes("oldest") || fact.includes("ancestors")) {
+                color = "#d5a2f2"; // Light purple
+            } else {
+                color = "#ffffff"; // Default white
+            }
+            document.body.style.backgroundColor = color;
+        }
+
+        function updateShareLinks(fact) {
+            const twitterBaseUrl = "https://twitter.com/intent/tweet?text=";
+            const linkedinBaseUrl = "https://www.linkedin.com/shareArticle?mini=true&url=";
+            const encodedFact = encodeURIComponent(fact);
+
+            document.getElementById('twitterShare').href = `${twitterBaseUrl}${encodedFact}`;
+            document.getElementById('linkedinShare').href = `${linkedinBaseUrl}${encodedFact}`;
+        }
+    </script>
+</body>
+</html>
+<!-- ```
+
+### Key Features:
+- **Color Scheme Adaptation:** The background color changes based on keywords in the displayed fact.
+- **Share on Social Media:** Users can share the current fact on Twitter and LinkedIn using the provided links.
+- **Responsive Design:** The layout is simple and adapts to different screen sizes.
+
+You can copy this code into an HTML file and open it in a browser to see it in action. Let me know if you need any further modifications! -->
